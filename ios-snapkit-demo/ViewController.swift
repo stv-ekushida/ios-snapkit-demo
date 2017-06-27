@@ -7,19 +7,28 @@
 //
 
 import UIKit
+import SnapKit
 
-class ViewController: UIViewController {
+/// 参考 : http://snapkit.io/docs/
+final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        let box = UIView()
+        box.backgroundColor = UIColor.blue
+        self.view.addSubview(box)
+
+        box.snp.makeConstraints { (make) in
+
+            // .equalTo
+            // .lessThanOrEqualTo
+            // .greaterThanOrEqualTo
+
+
+            //上、左、下、右
+            make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(30, 20, -20, 10))
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
